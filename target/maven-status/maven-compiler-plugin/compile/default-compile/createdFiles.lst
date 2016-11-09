@@ -1,0 +1,3 @@
+org/wso2/carbon/ml/siddhi/extension/h2omojo/ModelHandler.class
+Test.class
+org/wso2/carbon/ml/siddhi/extension/h2omojo/PredictStreamProcessor.class
