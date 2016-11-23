@@ -8,8 +8,8 @@ import java.io.IOException;
  */
 public class Test {
     public static void main(String[] args) throws ClassNotFoundException, IOException, InstantiationException, IllegalAccessException, PredictException {
-        ModelHandler model = new ModelHandler("/home/wso2123/Documents/MyProjects/h2omojo/DRF_model_python_1478663061299_1.zip");
-        Object[] data = {5.4, 3.7, 1.5, 0.2};
+        ModelHandler model = new ModelHandler("/home/wso2123/Documents/MyProjects/h2omojo/DRF_model_python_1478600965972_1.zip");
+        Object[] data = {7.0, 5.0, 2.0, 1.0};
         System.out.println(model.predict(data));
 
     }

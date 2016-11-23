@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
  */
 public class PredictStreamProcessorTestCase {
     private volatile boolean eventArrived;
-    private String modelPath = "/home/wso2123/Documents/MyProjects/h2omojo/DRF_model_python_1478663061299_1.zip";
+    private String modelPath = "/home/wso2123/Documents/MyProjects/h2omojo/DRF_model_python_1478600965972_1.zip";
 
     @Before
     public void init() {
@@ -42,7 +42,7 @@ public class PredictStreamProcessorTestCase {
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
                 if (inEvents != null) {
-                    Assert.assertEquals("Iris-setosa", inEvents[0].getData(4));
+                    Assert.assertEquals("Iris-versicolor", inEvents[0].getData(4));
                     eventArrived = true;
                 }
             }
@@ -50,7 +50,7 @@ public class PredictStreamProcessorTestCase {
 
         InputHandler inputHandler = executionPlanRuntime.getInputHandler("InputStream");
         executionPlanRuntime.start();
-        inputHandler.send(new Object[] {5.2, 3.4, 1.4, 0.2});
+        inputHandler.send(new Object[] {7.0, 5.0, 2.0, 1.0});
         sleepTillArrive(20000);
         Assert.assertTrue(eventArrived);
         executionPlanRuntime.shutdown();
