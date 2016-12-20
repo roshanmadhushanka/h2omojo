@@ -41,7 +41,9 @@ public class PredictStreamProcessor extends StreamProcessor{
     private ModelHandler modelHandler;
 
     @Override
-    protected void process(ComplexEventChunk<StreamEvent> complexEventChunk, Processor processor, StreamEventCloner streamEventCloner, ComplexEventPopulater complexEventPopulater) {
+    protected void process(ComplexEventChunk<StreamEvent> complexEventChunk, Processor processor,
+                           StreamEventCloner streamEventCloner, ComplexEventPopulater complexEventPopulater) {
+
         while(complexEventChunk.hasNext()){
             StreamEvent event = complexEventChunk.next();
             Object[] data = event.getOutputData();
@@ -60,7 +62,9 @@ public class PredictStreamProcessor extends StreamProcessor{
     }
 
     @Override
-    protected List<Attribute> init(AbstractDefinition abstractDefinition, ExpressionExecutor[] expressionExecutors, ExecutionPlanContext executionPlanContext) {
+    protected List<Attribute> init(AbstractDefinition abstractDefinition, ExpressionExecutor[] expressionExecutors,
+                                   ExecutionPlanContext executionPlanContext) {
+
         if (attributeExpressionExecutors.length < 1) {
             throw new ExecutionPlanValidationException("H2O model class path is not defined");
         }
@@ -68,8 +72,8 @@ public class PredictStreamProcessor extends StreamProcessor{
         //Model path
         String classPath;
         if (attributeExpressionExecutors[0] instanceof ConstantExpressionExecutor){
-            Object constatObj = ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
-            classPath = (String) constatObj;
+            Object constantObj = ((ConstantExpressionExecutor) attributeExpressionExecutors[0]).getValue();
+            classPath = (String) constantObj;
         } else {
             throw new ExecutionPlanValidationException("H2O model is not valid");
         }

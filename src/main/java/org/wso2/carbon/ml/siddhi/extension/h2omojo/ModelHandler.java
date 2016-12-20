@@ -29,7 +29,9 @@ public class ModelHandler {
     private EasyPredictModelWrapper model;
     private String[] column_names;
 
-    public ModelHandler(String modelPath) throws ClassNotFoundException, IllegalAccessException, InstantiationException, IOException {
+    public ModelHandler(String modelPath) throws ClassNotFoundException, IllegalAccessException,
+            InstantiationException, IOException {
+
         hex.genmodel.GenModel rawModel = MojoModel.load(modelPath);
         this.model = new EasyPredictModelWrapper(rawModel);
         this.column_names = rawModel._names;

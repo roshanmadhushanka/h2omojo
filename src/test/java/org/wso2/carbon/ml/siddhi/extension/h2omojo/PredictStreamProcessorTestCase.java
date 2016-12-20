@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
  */
 public class PredictStreamProcessorTestCase {
     private volatile boolean eventArrived;
-    private String modelPath = "/home/wso2123/Documents/MyProjects/h2omojo/DRF_model_python_1478600965972_1.zip";
+    private String modelPath = "/home/wso2123/Documents/MyProjects/h2omojo/src/test/model/DRF_model_python_1478600965972_1.zip";
 
     @Before
     public void init() {
